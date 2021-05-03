@@ -1,11 +1,17 @@
 use rand::{Rng, RngCore};
 
+#[derive(Clone, Debug)]
 pub struct Neuron {
     pub bias: f32,
     pub weights: Vec<f32>,
 }
 
 impl Neuron {
+    pub fn new(bias: f32, weights: Vec<f32>) -> Self {
+        assert!(!weights.is_empty());
+
+        Self { bias, weights }
+    }
     pub fn random(rng: &mut dyn RngCore, output_size: usize) -> Self {
         let bias = rng.gen_range(-1.0..=1.0);
         let weights = (0..output_size)

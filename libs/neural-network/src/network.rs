@@ -37,6 +37,7 @@ impl Network {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::neuron::Neuron;
     use approx::assert_relative_eq;
     mod random {
         use super::*;
@@ -90,6 +91,7 @@ mod tests {
         }
     }
     mod propagate {
+
         use super::*;
         #[test]
         fn test() {
